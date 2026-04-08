@@ -7,11 +7,10 @@
 
 header('Content-Type: text/html; charset=UTF-8');
 
-// Подключение к БД
-$user = 'u82278';
-$pass = '3700374';
-$db = new PDO('mysql:host=localhost;dbname=u82278', $user, $pass,
-    [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+// Подключение к БД (DRY - используем общий конфиг)
+require_once 'db_config.php';
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $messages = array();
